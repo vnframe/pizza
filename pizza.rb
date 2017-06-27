@@ -27,6 +27,17 @@ def how_many?
 	print "how many pizzas would you like?"
 	x = gets.chomp.to_i
 end
+
+def payment(x,y)
+	print "Please enter the specified amount for payment $"
+	pay = gets.chomp.to_f
+	if pay == (x * y.to_f)
+	puts "Thank you!"
+ 	else
+	puts "sorry, exact change only"
+	end
+end
+
 pizza = 0
 x = how_many?
 
@@ -45,3 +56,5 @@ end
 puts ""
 y = 9.99
 print "Total: $" , (x * y.to_f), "\n"
+payment(x,y)
+
