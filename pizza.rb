@@ -35,6 +35,7 @@ def payment(x,y)
 	puts "Thank you!"
  	else
 	puts "sorry, exact change only"
+	payment(x,y)
 	end
 end
 
