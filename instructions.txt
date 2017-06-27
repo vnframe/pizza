@@ -1,0 +1,3 @@
+Instructions
+
+Your next task is to make a function that generates a pizza.(so we want to see your string of pizza elements returned to the console.) Every time we run this function we want a new type of pizza. We also would like a method for each part of the pizza so lets have a method that returns a type of crust. Another that returns the meats , another that returns the veggies, and another that has special toppings and different sauces. Also have the options for things like extra cheese and double pepperoni. All of these methods should return the parts of the pizza when u run your main function. Next lets have are main method ask me how many random pizza’s we want and return the results as type string in the console. 
