@@ -28,14 +28,30 @@ def how_many?
 	x = gets.chomp.to_i
 end
 
+def change(amount)
+    available_coins  = [100,50,25,10,5,1]
+    coins            = []          # holds list of coins to return
+    remaining_amount = amount
+    available_coins.each do |coin| # counts down finds biggest coins first
+      if ((remaining_amount/coin).to_int > 0)
+      then (remaining_amount/coin).to_int.times { coins << coin }
+        puts "Remaining Amount: #{remaining_amount} | Coin: #{coin}"
+        remaining_amount = amount - coins.inject(:+)
+      end                         # coins.inject(:+) sums array items
+    end                          
+    puts "Your change is $ #{amount.round(2)} >> #{coins}\n\n"
+    return coins
+end
+
 def payment(x,y)
 	print "Please enter the specified amount for payment $"
 	pay = gets.chomp.to_f
-	if pay == (x * y.to_f)
+	if pay == (x * y)
 	puts "Thank you!"
- 	else
-	puts "sorry, exact change only"
-	payment(x,y)
+ 	else 
+	change(pay - (x * y))
+	puts "Thank you!"
+
 	end
 end
 
@@ -56,6 +72,6 @@ end
 
 puts ""
 y = 9.99
-print "Total: $" , (x * y.to_f), "\n"
+print "Total: $" , (x * y), "\n"
 payment(x,y)
 
