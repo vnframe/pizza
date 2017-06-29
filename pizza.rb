@@ -35,21 +35,26 @@ def change(amount)
     available_coins.each do |coin| # counts down finds biggest coins first
       if ((remaining_amount/coin).to_int > 0)
       then (remaining_amount/coin).to_int.times { coins << coin }
-        puts "Your change is $ #{remaining_amount.round(2)}"
+        puts "Remaining Amount: #{remaining_amount.round(2)} | Coin: #{coin}"
         remaining_amount = amount - coins.inject(:+)
       end                         # coins.inject(:+) sums array items
-    end                          
+    puts "Your change is $ #{amount.round(2)} >> #{coins}\n\n"
+    return coins
+end                          
   
     
+end
+def tax
+	tax = 0.06.to_f
 end
 
 def payment(x,y)
 	print "Please enter the specified amount for payment $"
 	pay = gets.chomp.to_f
-	if pay == (x * y)
+	if pay == ((x * y) + (x * y) * tax).round(2)
 	puts "Thank you!"
  	else 
-	change(pay - (x * y))
+	change(pay - ((x * y) + (x * y) * tax).round(2))
 	puts "Thank you!"
 
 	end
@@ -72,5 +77,5 @@ end
 
 puts ""
 y = 9.99
-print "Total: $" , (x * y), "\n"
+print "Total: $" , ((x * y) + (x * y) * tax).round(2), "\n"
 payment(x,y)
