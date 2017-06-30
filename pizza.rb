@@ -51,19 +51,24 @@ end
 def payment(x,y)
 	print "Please enter the specified amount for payment $"
 	pay = gets.chomp.to_f
-	if pay == ((x * y) + (x * y) * tax).round(2)
+	if pay == total(x,y)
 	puts "Thank you!"
- 	else 
-	change(pay - ((x * y) + (x * y) * tax).round(2))
+	else 
+	change(pay - total(x,y))
 	puts "Thank you!"
 
 	end
 end
+def total(x,y)
+  ((x * y) + (x * y) * tax).round(2)
+end
+
 
 pizza = 0
 
+x = how_many?
 
-how_many?.times do 
+x.times do 
 
 pizza += 1
 puts "PIZZA " + pizza.to_s
@@ -77,5 +82,6 @@ end
 
 puts ""
 y = 9.99
-print "Total: $" , ((x * y) + (x * y) * tax).round(2), "\n"
+print "Total $"
+puts total(x,y)
 payment(x,y)
