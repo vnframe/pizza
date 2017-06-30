@@ -61,9 +61,9 @@ def payment(x,y)
 end
 
 pizza = 0
-x = how_many?
 
-x.times do 
+
+how_many?.times do 
 
 pizza += 1
 puts "PIZZA " + pizza.to_s
