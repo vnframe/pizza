@@ -80,8 +80,8 @@ puts veggies
 puts meat
 end
 
-puts ""
-y = 9.99
-print "Total $"
-puts total(x,y)
-payment(x,y)
+# puts ""
+# y = 9.99
+# print "Total $"
+# puts total(x,y)
+# payment(x,y)
