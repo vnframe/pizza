@@ -53,9 +53,21 @@ def payment(x,y)
 	pay = gets.chomp.to_f
 	if pay == total(x,y)
 	puts "Thank you!"
-	else
-	change(pay - total(x,y))
+elsif
+	pay == ((total(x,y) + 5) * 1.15).round(2)
 	puts "Thank you!"
+elsif
+	pay > ((total(x,y) + 5) * 1.15).round(2)
+	change(pay - ((total(x,y) + 5) * 1.15).round(2))
+
+	else
+		pay > total(x,y)
+
+		change(pay - total(x,y))
+
+	puts "Thank you!"
+
+
 
 	end
 end
@@ -63,6 +75,10 @@ def total(x,y)
   ((x * y) + (x * y) * tax).round(2)
 end
 
+def delivered?
+	puts "Would you like your pizza delivered?"
+	p delivery = ["delivered", "not_delivered"].sample
+end
 
 pizza = 0
 
@@ -82,6 +98,17 @@ end
 
 puts ""
 y = 9.99
-print "Total $"
+
+print "Your Subtotal is $"
 puts total(x,y)
+
+
+if delivered? == "delivered"
+	print "Your total is $"
+	puts ((total(x,y) + 5) * 1.15).round(2)
+else
+	print "Your total is $"
+	puts total(x,y)
+end
+
 payment(x,y)
