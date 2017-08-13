@@ -34,10 +34,10 @@ def change(amount)
     remaining_amount = amount
     available_coins.each do |coin| # counts down finds biggest coins first
       if ((remaining_amount/coin).to_int > 0)
-      then (remaining_amount/coin).to_int.times { coins << coin }
+				(remaining_amount/coin).to_int.times { coins << coin }
         puts "Remaining Amount: #{remaining_amount.round(2)} | Coin: #{coin}"
         remaining_amount = amount - coins.inject(:+)
-      end                         # coins.inject(:+) sums array items
+      end                         # coins.inject(:+) injects values into empty array and sums array items
     puts "Your change is $ #{amount.round(2)} >> #{coins}\n\n"
     return coins
 end
@@ -45,16 +45,16 @@ end
 
 end
 def tax
-	tax = 0.06.to_f
+	tax = 0.06.to_f #sets tax rate and makes it a float
 end
 
-def payment(x,y)
+def payment(x,y) #variables are passed in using an argument
 	print "Please enter the specified amount for payment $"
-	pay = gets.chomp.to_f
-	if pay == total(x,y)
+	pay = gets.chomp.to_f #prompts user for payment and converts input into float
+	if pay == total(x,y) #if pay is exact change, the transaction is complete
 	puts "Thank you!"
 	else
-	change(pay - total(x,y))
+	change(pay - total(x,y)) #calls change function if change is not exact
 	puts "Thank you!"
 
 	end
@@ -80,8 +80,8 @@ puts veggies
 puts meat
 end
 
-# puts ""
-# y = 9.99
-# print "Total $"
-# puts total(x,y)
-# payment(x,y)
+puts ""
+y = 9.99
+print "Total $"
+puts total(x,y)
+payment(x,y)
