@@ -35,6 +35,7 @@ def change(amount)
     available_coins.each do |coin| # counts down finds biggest coins first
       if ((remaining_amount/coin).to_int > 0)
 				(remaining_amount/coin).to_int.times { coins << coin }
+
         puts "Remaining Amount: #{remaining_amount.round(2)} | Coin: #{coin}"
         remaining_amount = amount - coins.inject(:+)
       end                         # coins.inject(:+) injects values into empty array and sums array items
@@ -55,6 +56,7 @@ def payment(x,y) #variables are passed in using an argument
 	puts "Thank you!"
 	else
 	change(pay - total(x,y)) #calls change function if change is not exact
+	#passes in the amount needed to be exchanged via an argument, replacing "amount" variable
 	puts "Thank you!"
 
 	end

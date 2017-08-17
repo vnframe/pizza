@@ -48,7 +48,7 @@ def tax
 	tax = 0.06.to_f#sets tax rate and makes it a float
 end
 
-def payment(x,y)#variables are passed in using an argument
+def payment(x,y, d)#variables are passed in using an argument
 	print "Please enter the specified amount for payment $"
 	pay = gets.chomp.to_f#prompts user for payment and converts input into float
 	if pay == total(x,y) #if pay is exact change, the transaction is complete
@@ -57,9 +57,9 @@ elsif
 	pay == ((total(x,y) + 5) * 1.15).round(2) #if the payment is exact change with delivery fee and tip, transction is comeplete
 	puts "Thank you!"
 elsif
-	pay > ((total(x,y) + 5) * 1.15).round(2)
+	pay > ((total(x,y) + 5) && d == "deliviered"
 	change(pay - ((total(x,y) + 5) * 1.15).round(2)) #change function called if exact change is not given and pizza is delivered
-
+																			#passes in the amount needed to be exchanged via an argument, replacing "amount" variable
 	else
 		pay > total(x,y)
 
@@ -111,4 +111,4 @@ else
 	puts total(x,y) #if not delivered, total is reprints total
 end
 
-payment(x,y) #calls payment method and passes in variables
+payment(x,y, delivered?) #calls payment method and passes in variables
